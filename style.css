@@ -459,9 +459,23 @@
   padding-right: 2rem;
 }
 
-.shield-svg {
-  width: 260px;
-  height: 310px;
+.hero-logo-img {
+  width: 220px;          /* Logo ki width apas ke hisaab se adjust kar sakte hain */
+  height: auto;          /* Aspect ratio maintain rahegi */
+  object-fit: contain;
+  border-radius: 12px;   /* Agar logo ko rounded corners dena ho */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .hero-graphic {
+    margin-top: 1.5rem;
+    padding-right: 0;
+  }
+  
+  .hero-logo-img {
+    width: 150px; /* Mobile screen ke liye chota size */
+  }
 }
 
 /* Mobile Responsiveness */
@@ -524,6 +538,25 @@
       font-size: 0.85rem;
       color: var(--text-muted);
     }
+    .technician-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #ffffff;
+  border: 1px solid #eaecf0;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 1.5rem 0;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.02);
+}
+
+.tech-avatar-img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #00a884;
+}
     .tech-services-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
