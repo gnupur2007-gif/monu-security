@@ -452,29 +452,54 @@
   color: #00a884;
 }
 
+/* Hero Graphic Container Alignment Fix */
 .hero-graphic {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 2rem;
+  max-width: 380px; /* Max size limit fix */
+  width: 100%;
+  margin: 0 auto;
 }
 
+/* Image Size & Layout Fix */
+.hero-graphic img,
 .hero-logo-img {
-  width: 220px;          /* Logo ki width apas ke hisaab se adjust kar sakte hain */
-  height: auto;          /* Aspect ratio maintain rahegi */
-  object-fit: contain;
-  border-radius: 12px;   /* Agar logo ko rounded corners dena ho */
+  width: 100%;
+  max-width: 320px; /* Image ko control karne ke liye fixed size */
+  height: auto;
+  object-fit: contain; /* Aspect ratio ko bilkul perfect rakhega */
+  border-radius: 16px;
 }
 
-/* Mobile Responsiveness */
+/* Flexbox Layout Fix for Hero Card */
+.hero-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Mobile Screens ke liye adjustment */
 @media (max-width: 900px) {
-  .hero-graphic {
-    margin-top: 1.5rem;
-    padding-right: 0;
+  .hero-card {
+    flex-direction: column;
+    padding: 1.5rem;
+    text-align: center;
   }
   
+  .hero-graphic {
+    max-width: 250px;
+    margin-top: 1rem;
+  }
+  
+  .hero-graphic img,
   .hero-logo-img {
-    width: 150px; /* Mobile screen ke liye chota size */
+    max-width: 220px;
   }
 }
 
