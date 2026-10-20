@@ -31,3 +31,47 @@ function toggleReviews() {
     btnText.textContent = 'Hide Customer Reviews';
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggleBtn = document.getElementById('navToggleBtn');
+  const navMenu = document.getElementById('navMenu');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  // Toggle button click logic
+  if (navToggleBtn && navMenu) {
+    navToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navMenu.classList.toggle('active');
+      
+      // Icon toggle (Hamburger <-> Close X icon)
+      const icon = navToggleBtn.querySelector('i');
+      if (icon) {
+        if (navMenu.classList.contains('active')) {
+          icon.className = 'fa-solid fa-xmark';
+        } else {
+          icon.className = 'fa-solid fa-bars';
+        }
+      }
+    });
+
+    // Mobile menu link click karne par automatically close ho jaye
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navMenu.classList.remove('active');
+          const icon = navToggleBtn.querySelector('i');
+          if (icon) icon.className = 'fa-solid fa-bars';
+        }
+      });
+    });
+
+    // Menu ke bahar kahin bhi click karne par menu close ho jaye
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !navToggleBtn.contains(e.target)) {
+        navMenu.classList.remove('active');
+        const icon = navToggleBtn.querySelector('i');
+        if (icon) icon.className = 'fa-solid fa-bars';
+      }
+    });
+  }
+});
